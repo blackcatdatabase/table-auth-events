@@ -2,7 +2,7 @@
 
 ![SQL](https://img.shields.io/badge/SQL-MySQL%208.0%2B-4479A1?logo=mysql&logoColor=white) ![License](https://img.shields.io/badge/license-BlackCat%20Proprietary-red) ![Status](https://img.shields.io/badge/status-stable-informational) ![Generated](https://img.shields.io/badge/generated-from%20schema--map-blue)
 
-> Schema package for table **auth_events** (repo: $slug).
+> Schema package for table **auth_events** (repo: `auth-events`).
 
 ## Files
 ```
@@ -39,7 +39,7 @@ mysql -h 127.0.0.1 -P 3307 -u root -proot app < schema/030_foreign_keys.sql
 |-------:|:-----|:----:|:--------|:------|
 | id | BIGINT UNSIGNED | — | — | AUTO_INCREMENT, PK |
 | user_id | BIGINT UNSIGNED | YES | — |  |
-| type | ENUM(''login_success'',''login_failure'',''logout'',''password_reset'',''lockout'') | NO | — |  |
+| type | ENUM('login_success','login_failure','logout','password_reset','lockout') | NO | — |  |
 | ip_hash | BINARY(32) | YES | — |  |
 | ip_hash_key_version | VARCHAR(64) | YES | — |  |
 | user_agent | VARCHAR(1024) | YES | — |  |
@@ -53,15 +53,15 @@ mysql -h 127.0.0.1 -P 3307 -u root -proot app < schema/030_foreign_keys.sql
 ```mermaid
 erDiagram
   AUTH_EVENTS {
-    BIGINT id PK
-    BIGINT user_id
-    ENUM(''login_success'',''login_failure'',''logout'',''password_reset'',''lockout'') type
-    BINARY(32) ip_hash
-    VARCHAR(64) ip_hash_key_version
-    VARCHAR(1024) user_agent
-    DATETIME(6) occurred_at
+    INT id PK
+    INT user_id
+    ENUM type
+    BLOB ip_hash
+    VARCHAR ip_hash_key_version
+    VARCHAR user_agent
+    DATETIME occurred_at
     JSON meta
-    VARCHAR(255) meta_email
+    VARCHAR meta_email
   }
   AUTH_EVENTS }o--|| USERS : "user_id"
 ```
