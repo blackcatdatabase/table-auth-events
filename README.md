@@ -63,7 +63,7 @@ erDiagram
     JSON meta
     VARCHAR(255) meta_email
   }
-  AUTH_EVENTS }o--|| USERS : (user_id)
+  AUTH_EVENTS }o--|| USERS : "user_id"
 ```
 
 ## Indexes
