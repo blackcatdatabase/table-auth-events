@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace BlackCat\Database\Packages\AuthEvents\Service;
 
-use BlackCat\Core\Database\Database;
+use BlackCat\Core\Database;
 use BlackCat\Database\Packages\AuthEvents\Dto\AuthEventDto;
 use BlackCat\Database\Packages\AuthEvents\Mapper\AuthEventDtoMapper;
 use BlackCat\Database\Packages\AuthEvents\Repository\AuthEventRepository;
