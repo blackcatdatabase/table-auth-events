@@ -6,7 +6,7 @@ namespace BlackCat\Database\Packages\AuthEvents;
 final class Definitions {
     // --- základní metadata ---
     public static function table(): string { return 'auth_events'; }
-    public static function contractView(): string { return 'v_auth_events_contract'; }
+    public static function contractView(): string { return 'vw_auth_events'; }
     /** @return string[] */
     public static function columns(): array { return [ 'id', 'user_id', 'type', 'ip_hash', 'ip_hash_key_version', 'user_agent', 'occurred_at', 'meta', 'meta_email' ]; }
     public static function pk(): string { return 'id'; }
