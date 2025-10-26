@@ -1,4 +1,4 @@
--- Auto-generated from schema-views-postgres.psd1 (map@mtime:2025-10-24T09:45:40Z)
+-- Auto-generated from schema-views-postgres.psd1 (map@38d5403)
 -- engine: postgres
 -- table:  auth_events
 -- Contract view for [auth_events]
@@ -8,6 +8,7 @@ SELECT
   user_id,
   type,
   ip_hash,
+  encode(ip_hash, 'hex') AS ip_hash_hex,
   ip_hash_key_version,
   user_agent,
   occurred_at,
