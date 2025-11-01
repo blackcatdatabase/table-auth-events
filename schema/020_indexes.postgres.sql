@@ -1,4 +1,4 @@
--- Auto-generated from schema-map-postgres.psd1 (map@38d5403)
+-- Auto-generated from schema-map-postgres.psd1 (map@c5e4097)
 -- engine: postgres
 -- table:  auth_events
 CREATE INDEX IF NOT EXISTS idx_auth_meta_email ON auth_events (meta_email);
