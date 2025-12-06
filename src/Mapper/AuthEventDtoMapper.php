@@ -17,7 +17,7 @@ use BlackCat\Database\Support\DtoHydrator;
 final class AuthEventDtoMapper
 {
     /** @var array<string,string> Column -> DTO property */
-    private const COL_TO_PROP = [ 'user_id' => 'userId', 'ip_hash' => 'ipHash', 'ip_hash_key_version' => 'ipHashKeyVersion', 'user_agent' => 'userAgent', 'occurred_at' => 'occurredAt', 'meta_email' => 'metaEmail' ];
+    private const COL_TO_PROP = [ 'id' => 'id', 'user_id' => 'userId', 'type' => 'type', 'ip_hash' => 'ipHash', 'ip_hash_key_version' => 'ipHashKeyVersion', 'user_agent' => 'userAgent', 'occurred_at' => 'occurredAt', 'meta' => 'meta', 'meta_email' => 'metaEmail' ];
 
     /** @var string[] */
     private const BOOL_COLS   = [];
@@ -39,13 +39,8 @@ final class AuthEventDtoMapper
 
     private static function tz(): DateTimeZone
     {
-        if (self::$tzObj instanceof DateTimeZone) {
-            return self::$tzObj;
-        }
-        try {
+        if (!(self::$tzObj instanceof DateTimeZone)) {
             self::$tzObj = new DateTimeZone(self::TZ);
-        } catch (\Throwable) {
-            self::$tzObj = new DateTimeZone('UTC');
         }
         return self::$tzObj;
     }
