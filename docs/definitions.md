@@ -6,12 +6,12 @@ Authentication events (logins, resets, lockouts).
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
 | id | BIGINT | NO |  | Surrogate primary key. |
-| ip_hash | BYTEA | YES |  | Hashed client IP. |
+| ip_hash | BINARY(32) | YES |  | Hashed client IP. |
 | ip_hash_key_version | VARCHAR(64) | YES |  | Key version used for ip_hash. |
-| meta | JSONB | YES |  | Additional JSON metadata (e.g., email used). |
-| meta_email | TEXT | YES |  | Generated/stored email extracted from meta for indexing/filtering. |
-| occurred_at | TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | When event happened (UTC). |
-| type | TEXT | NO |  | Auth event kind. (enum: login_success, login_failure, logout, password_reset, lockout) |
+| meta | JSON | YES |  | Additional JSON metadata (e.g., email used). |
+| meta_email | VARCHAR(255) | YES |  | Generated/stored email extracted from meta for indexing/filtering. |
+| occurred_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) | When event happened (UTC). |
+| type | ENUM('login_success','login_failure','logout','password_reset','lockout') | NO |  | Auth event kind. (enum: login_success, login_failure, logout, password_reset, lockout) |
 | user_agent | VARCHAR(1024) | YES |  | Client user agent. |
 | user_id | BIGINT | YES |  | Related user (FK users.id). |
 
@@ -55,5 +55,5 @@ Foreign keys:
 ## Views
 | View | Engine | Flags | File |
 | --- | --- | --- | --- |
-| vw_auth_events | mysql | algorithm=MERGE, security=INVOKER | [packages\auth-events\schema\040_views.mysql.sql](https://github.com/blackcatacademy/blackcat-database/packages/auth-events/schema/040_views.mysql.sql) |
-| vw_auth_events | postgres |  | [packages\auth-events\schema\040_views.postgres.sql](https://github.com/blackcatacademy/blackcat-database/packages/auth-events/schema/040_views.postgres.sql) |
+| vw_auth_events | mysql | algorithm=MERGE, security=INVOKER | [schema\040_views.mysql.sql](schema\040_views.mysql.sql) |
+| vw_auth_events | postgres |  | [schema\040_views.postgres.sql](schema\040_views.postgres.sql) |
