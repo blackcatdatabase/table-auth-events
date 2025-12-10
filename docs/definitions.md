@@ -5,14 +5,14 @@ Authentication events (logins, resets, lockouts).
 ## Columns
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
-| id | BIGINT | NO |  | Surrogate primary key. |
-| ip_hash | mysql: BINARY(32) / postgres: BYTEA | YES |  | Hashed client IP. |
-| ip_hash_key_version | VARCHAR(64) | YES |  | Key version used for ip_hash. |
-| meta | mysql: JSON / postgres: JSONB | YES |  | Additional JSON metadata (e.g., email used). |
-| meta_email | mysql: VARCHAR(255) / postgres: TEXT | YES |  | Generated/stored email extracted from meta for indexing/filtering. |
-| occurred_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | When event happened (UTC). |
-| type | mysql: ENUM('login_success','login_failure','logout','password_reset','lockout') / postgres: TEXT | NO |  | Auth event kind. (enum: login_success, login_failure, logout, password_reset, lockout) |
 | user_agent | VARCHAR(1024) | YES |  | Client user agent. |
+| ip_hash_key_version | VARCHAR(64) | YES |  | Key version used for ip_hash. |
+| type | mysql: ENUM('login_success','login_failure','logout','password_reset','lockout') / postgres: TEXT | NO |  | Auth event kind. (enum: login_success, login_failure, logout, password_reset, lockout) |
+| occurred_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | When event happened (UTC). |
+| ip_hash | mysql: BINARY(32) / postgres: BYTEA | YES |  | Hashed client IP. |
+| meta_email | mysql: VARCHAR(255) / postgres: TEXT | YES |  | Generated/stored email extracted from meta for indexing/filtering. |
+| id | BIGINT | NO |  | Surrogate primary key. |
+| meta | mysql: JSON / postgres: JSONB | YES |  | Additional JSON metadata (e.g., email used). |
 | user_id | BIGINT | YES |  | Related user (FK users.id). |
 
 ## Engine Details
