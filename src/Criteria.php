@@ -41,11 +41,11 @@ final class Criteria extends BaseCriteria
         return [ 'ip_hash_key_version', 'user_agent', 'meta_email' ];
     }
 
-/** Columns allowed in ORDER BY (falls back to filterable() when empty). */
-protected function sortable(): array
-{
-    return [ 'id', 'user_id', 'type', 'ip_hash_key_version', 'user_agent', 'occurred_at', 'meta_email' ];
-}
+    /** Columns allowed in ORDER BY (falls back to filterable() when empty). */
+    protected function sortable(): array
+    {
+        return [ 'id', 'user_id', 'type', 'ip_hash_key_version', 'user_agent', 'occurred_at', 'meta_email' ];
+    }
 
     /**
      * Whitelist of joinable entities (for safe ->join() usage):
