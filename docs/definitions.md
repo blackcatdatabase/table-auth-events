@@ -7,7 +7,7 @@ Authentication events (logins, resets, lockouts).
 | --- | --- | --- | --- | --- |
 | id | BIGINT | NO |  | Surrogate primary key. |
 | user_id | BIGINT | YES |  | Related user (FK users.id). |
-| type | mysql: ENUM('login_success','login_failure','logout','password_reset','lockout') / postgres: TEXT | NO |  | Auth event kind. (enum: login_success, login_failure, logout, password_reset, lockout) |
+| type | mysql: ENUM('login_success','login_failure','logout','password_reset','lockout','magic_link_request','magic_link_throttled','magic_link_email_queued','device_code_issue','device_code_issue_failure','device_code_activate_success','device_code_activate_failure','device_code_poll_success','device_code_poll_failure','webauthn_register_success','webauthn_register_failure','webauthn_login_success','webauthn_login_failure') / postgres: TEXT | NO |  | Auth event kind. (enum: login_success, login_failure, logout, password_reset, lockout, magic_link_request, magic_link_throttled, magic_link_email_queued, device_code_issue, device_code_issue_failure, device_code_activate_success, device_code_activate_failure, device_code_poll_success, device_code_poll_failure, webauthn_register_success, webauthn_register_failure, webauthn_login_success, webauthn_login_failure) |
 | ip_hash | mysql: BINARY(32) / postgres: BYTEA | YES |  | Hashed client IP. |
 | ip_hash_key_version | VARCHAR(64) | YES |  | Key version used for ip_hash. |
 | user_agent | VARCHAR(1024) | YES |  | Client user agent. |
