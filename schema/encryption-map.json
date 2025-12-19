@@ -1,0 +1,38 @@
+{
+  "tables": {
+    "auth_events": {
+      "columns": {
+        "id": {
+          "strategy": "passthrough"
+        },
+        "ip_hash": {
+          "context": "db.hmac.auth_events.ip_hash",
+          "key_version_column": "ip_hash_key_version",
+          "strategy": "hmac",
+          "write_key_version": true
+        },
+        "ip_hash_key_version": {
+          "strategy": "passthrough"
+        },
+        "meta": {
+          "strategy": "passthrough"
+        },
+        "meta_email": {
+          "strategy": "passthrough"
+        },
+        "occurred_at": {
+          "strategy": "passthrough"
+        },
+        "type": {
+          "strategy": "passthrough"
+        },
+        "user_agent": {
+          "strategy": "passthrough"
+        },
+        "user_id": {
+          "strategy": "passthrough"
+        }
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
--- Auto-generated from schema-map-postgres.yaml (map@sha1:6D9B52237D942B2B3855FD0F5500331B935A7C62)
+-- Auto-generated from schema-map-postgres.yaml (map@sha1:8C4F2BC1C4D22EE71E27B5A7968C71E32D8D884D)
 -- engine: postgres
 -- table:  auth_events
 
@@ -12,5 +12,5 @@ CREATE TABLE IF NOT EXISTS auth_events (
   occurred_at TIMESTAMPTZ(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
   meta JSONB NULL,
   meta_email TEXT GENERATED ALWAYS AS (meta ->> 'email') STORED,
-  CONSTRAINT chk_auth_type CHECK (type IN ('login_success','login_failure','logout','password_reset','lockout'))
+  CONSTRAINT chk_auth_type CHECK (type IN ('login_success','login_failure','logout','password_reset','lockout','magic_link_request','magic_link_throttled','magic_link_email_queued','device_code_issue','device_code_issue_failure','device_code_activate_success','device_code_activate_failure','device_code_poll_success','device_code_poll_failure','webauthn_register_success','webauthn_register_failure','webauthn_login_success','webauthn_login_failure'))
 );

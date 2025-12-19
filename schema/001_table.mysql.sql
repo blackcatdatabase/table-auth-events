@@ -1,11 +1,11 @@
--- Auto-generated from schema-map-mysql.yaml (map@sha1:09DF9CA612D1573E058190CC207FA257C05AEC1F)
+-- Auto-generated from schema-map-mysql.yaml (map@sha1:0D716345C0228A9FD8972A3D31574000D05317DB)
 -- engine: mysql
 -- table:  auth_events
 
 CREATE TABLE IF NOT EXISTS auth_events (
   id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   user_id BIGINT UNSIGNED NULL,
-  `type` ENUM('login_success','login_failure','logout','password_reset','lockout') NOT NULL,
+  `type` ENUM('login_success','login_failure','logout','password_reset','lockout','magic_link_request','magic_link_throttled','magic_link_email_queued','device_code_issue','device_code_issue_failure','device_code_activate_success','device_code_activate_failure','device_code_poll_success','device_code_poll_failure','webauthn_register_success','webauthn_register_failure','webauthn_login_success','webauthn_login_failure') NOT NULL,
   ip_hash BINARY(32) NULL,
   ip_hash_key_version VARCHAR(64) NULL,
   user_agent VARCHAR(1024) NULL,
